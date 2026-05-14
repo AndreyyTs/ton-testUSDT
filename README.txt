@@ -1,6 +1,6 @@
 # testUSDT Faucet
 
-**Сайт:** [https://andreyyts.github.io/ton-testUSDT/](https://andreyyts.github.io/ton-testUSDT/)
+**Сайт · Live:** https://andreyyts.github.io/ton-testUSDT/
 
 ---
 
