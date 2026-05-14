@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>testUSDT Faucet</title>
+    <link rel="icon" type="image/svg+xml" href="/ton-testUSDT/app-icon.svg" />
+    <style>
+      :root[data-theme='dark'] body {
+        background: #111;
+        color: #eee;
+      }
+      :root[data-theme='light'] body {
+        background: #fff;
+        color: #111;
+      }
+      :root[data-theme='dark'] a {
+        color: #4f9cff;
+      }
+      :root[data-theme='light'] a {
+        color: #1d4ed8;
+      }
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 16px;
+      }
+      hr {
+        opacity: 0.3;
+      }
+      .row > * {
+        margin-right: 8px;
+      }
+      .row-tonconnect > * {
+        vertical-align: middle;
+      }
+      [data-active='true'] {
+        text-decoration: underline;
+      }
+      #status[data-kind='error'] {
+        color: #dc2626;
+      }
+      #status[data-kind='success'] {
+        color: #16a34a;
+      }
+      #ton-connect-root {
+        display: inline-block;
+      }
+    </style>
+    <script type="module" crossorigin src="/ton-testUSDT/assets/index-BSmfOlEU.js"></script>
+  </head>
+  <body>
+    <div class="row row-tonconnect">
+      <strong>testUSDT Faucet</strong>
+      &nbsp;|&nbsp;
+      <button class="lang-btn" data-lang="ru" type="button">RU</button>
+      <button class="lang-btn" data-lang="en" type="button">EN</button>
+      <button class="lang-btn" data-lang="zh" type="button">中文</button>
+      &nbsp;|&nbsp;
+      <button id="theme-btn" type="button">
+        <span id="theme-icon">☾</span>
+      </button>
+      &nbsp;|&nbsp;
+      <small>testnet</small>
+      &nbsp;|&nbsp;
+      <span id="ton-connect-root"></span>
+    </div>
+
+    <hr />
+
+    <h1 data-i18n="title">testUSDT Faucet</h1>
+
+    <p id="minter-row">
+      <span data-i18n="minterLinkLabel"></span>
+      &nbsp;<a id="minter-link" href="#" target="_blank" rel="noopener noreferrer"></a>
+    </p>
+
+    <p>
+      <label>
+        <span data-i18n="amountLabel">amount</span><br />
+        <input
+          id="amount"
+          type="number"
+          min="1"
+          max="10000"
+          step="1"
+          value="1000"
+        />
+      </label>
+    </p>
+    <p class="row">
+      <button id="mint-btn" type="button" data-i18n="mintBtn">…</button>
+      <button id="refresh-btn" type="button" data-i18n="refreshBtn">…</button>
+    </p>
+
+    <p id="status" data-i18n="statusReady">…</p>
+
+    <script>
+      window.addEventListener('error', function (e) {
+        var msg =
+          '[testUSDT] window.error: ' + (e.message || e.error || 'unknown');
+        console.error(msg, e);
+        var pre = document.createElement('pre');
+        pre.style.cssText = 'color:#dc2626;white-space:pre-wrap;padding:12px;';
+        pre.textContent = msg;
+        document.body && document.body.prepend(pre);
+      });
+      window.addEventListener('unhandledrejection', function (e) {
+        var msg =
+          '[testUSDT] unhandledrejection: ' +
+          ((e.reason && (e.reason.message || e.reason)) || 'unknown');
+        console.error(msg, e.reason);
+        var pre = document.createElement('pre');
+        pre.style.cssText = 'color:#dc2626;white-space:pre-wrap;padding:12px;';
+        pre.textContent = msg;
+        document.body && document.body.prepend(pre);
+      });
+    </script>
+  </body>
+</html>
